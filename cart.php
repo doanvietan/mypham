@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -93,10 +94,12 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <td colspan="4" class="text-right" >
+                                        <td colspan="4" class="text-right">
                                             <h4 style="line-height: 45px;">Tổng:</h4>
                                         </td>
-                                        <td class="text-center"><h4 style="line-height: 45px;">$200.000</h4></td>
+                                        <td class="text-center">
+                                            <h4 style="line-height: 45px;">$200.000</h4>
+                                        </td>
                                         <td class="text-center">
                                             <div class="cart-summary-button">
                                                 <a style="color: #fff;" class="btn" href="checkout.php">Checkout</a>
@@ -106,7 +109,7 @@
                                 </tfoot>
                             </table>
                         </div>
-                        
+
 
                     </div>
 

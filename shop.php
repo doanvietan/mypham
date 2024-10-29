@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -593,7 +593,7 @@
                                                                 <div class="product-img mb-0 mb-xs-25">
                                                                     <a href="single-product.php">
                                                                         <!-- <img src="./assets/images/product/product-17.jpg" -->
-                                                                            alt="">
+                                                                        alt="">
                                                                     </a>
                                                                     <span class="descount-sticker">-10%</span>
                                                                     <span class="sticker">New</span>
@@ -651,7 +651,7 @@
                                                                 <div class="product-img mb-0 mb-xs-25">
                                                                     <a href="single-product.php">
                                                                         <!-- <img src="./assets/images/product/product-15.jpg" -->
-                                                                            alt="">
+                                                                        alt="">
                                                                     </a>
                                                                     <span class="descount-sticker">-10%</span>
                                                                     <span class="sticker">New</span>

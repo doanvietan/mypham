@@ -106,7 +106,7 @@
                     <div class="col-md-7">
                         <!--Product Details Content Start-->
                         <div class="product-details-content">
-                            
+
                             <h2>White Shave Brux</h2>
                             <div class="single-product-reviews">
                                 <i class="fa fa-star"></i>

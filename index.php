@@ -1937,11 +1937,12 @@
         <!--List Product section end-->
 
         <!--Brand section start-->
-        
+
         <!--Brand section end-->
         <?php
         require "footer.php";
         ?>
+        <img src="/assets/images/logo-white.png" alt="">
     </div>
 
 </body>
@@ -1952,4 +1953,5 @@
 <script src="assets/js/plugins.js"></script>
 <script src="assets/js/main.js"></script>
 </body>
+
 </html>
