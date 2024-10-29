@@ -1942,7 +1942,6 @@
         <?php
         require "footer.php";
         ?>
-        <img src="/assets/images/logo-white.png" alt="">
     </div>
 
 </body>
