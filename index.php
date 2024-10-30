@@ -146,6 +146,13 @@
                     <div class="col-12">
                         <div class="tab-content">
                             <div class="tab-pane fade show active" id="products">
+                                <?php
+                                $conn = mysqli_connect('localhost', 'root', '', 'mypham');
+                                $sqlNewProduct = 'Select * from Products where new_product = 1';
+                                $resultNewProduct = mysqli_query($conn, $sqlNewProduct);
+                                displayProduct($resultNewProduct);
+                                function displayProduct($result)
+                                { ?>
                                 <div class="row tf-element-carousel" data-slick-options='{
                                 "slidesToShow": 4,
                                 "slidesToScroll": 1,
@@ -172,1262 +179,69 @@
                                 "autoplay": true
                                 }}
                                 ]'>
-                                    <div class="col-12">
-                                        <!-- Single Product Start -->
-                                        <div class="single-product mb-30">
-                                            <div class="product-img">
-                                                <a href="single-product.php">
-                                                    <img src="./assets/images/product/product-1.jpg" alt="">
-                                                </a>
-                                                <span class="descount-sticker">-10%</span>
-                                                <span class="sticker">New</span>
-                                                <div class="product-action d-flex justify-content-between">
-                                                    <a class="product-btn" href="#">Add to Cart</a>
-                                                    <ul class="d-flex">
-                                                        <li><a href="#quick-view-modal-container" data-toggle="modal"
-                                                                title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-exchange"></i></a></li>
-                                                    </ul>
+                                        <?php
+                                        while ($row = mysqli_fetch_array($result)) {
+                                        ?>
+                                            <div class="col-12">
+                                                <!-- Single Product Start -->
+                                                <div class="single-product mb-30">
+                                                    <div class="product-img">
+                                                        <a href="single-product.php">
+                                                            <img src="./assets/images/product/<?php echo $row['image']; ?>" alt="">
+                                                        </a>
+                                                        <span class="descount-sticker">-10%</span>
+                                                        <span class="sticker">New</span>
+                                                        <div class="product-action d-flex justify-content-between">
+                                                            <a class="product-btn" href="#">Add to Cart</a>
+                                                            <ul class="d-flex">
+                                                                <li><a href="#quick-view-modal-container" data-toggle="modal"
+                                                                        title="Quick View"><i class="fa fa-eye"></i></a></li>
+                                                                <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
+                                                                <li><a href="#"><i class="fa fa-exchange"></i></a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-content">
+                                                        <h3><a href="single-product.php"><?php echo $row['product_name']; ?></a></h3>
+                                                        <div class="ratting">
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                        </div>
+                                                        <h4 class="price"><span class="new">€<?php echo $row['new_price']; ?>.00</span>
+                                                            <span class="old">€<?php echo $row['old_price']; ?>.00</span>
+                                                        </h4>
+                                                    </div>
                                                 </div>
+                                                <!-- Single Product End -->
                                             </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Brush</a></h3>
-                                                <div class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <h4 class="price"><span class="new">€110.00</span><span
-                                                        class="old">€130.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
+                                        <?php
+                                        }
+                                        ?>
                                     </div>
-                                    <div class="col-12">
-                                        <!-- Single Product Start -->
-                                        <div class="single-product mb-30">
-                                            <div class="product-img">
-                                                <a href="single-product.php">
-                                                    <img src="./assets/images/product/product-2.jpg" alt="">
-                                                </a>
-                                                <span class="descount-sticker">-10%</span>
-                                                <span class="sticker">New</span>
-                                                <div class="product-action d-flex justify-content-between">
-                                                    <a class="product-btn" href="#">Add to Cart</a>
-                                                    <ul class="d-flex">
-                                                        <li><a href="#quick-view-modal-container" data-toggle="modal"
-                                                                title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-exchange"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Brux</a></h3>
-                                                <div class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <h4 class="price"><span class="new">€130.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                    </div>
-                                    <div class="col-12">
-                                        <!-- Single Product Start -->
-                                        <div class="single-product mb-30">
-                                            <div class="product-img">
-                                                <a href="single-product.php">
-                                                    <img src="./assets/images/product/product-3.jpg" alt="">
-                                                </a>
-                                                <span class="descount-sticker">-10%</span>
-                                                <span class="sticker">New</span>
-                                                <div class="product-action d-flex justify-content-between">
-                                                    <a class="product-btn" href="#">Add to Cart</a>
-                                                    <ul class="d-flex">
-                                                        <li><a href="#quick-view-modal-container" data-toggle="modal"
-                                                                title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-exchange"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Bruz</a></h3>
-                                                <div class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <h4 class="price"><span class="new">€130.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                    </div>
-                                    <div class="col-12">
-                                        <!-- Single Product Start -->
-                                        <div class="single-product mb-30">
-                                            <div class="product-img">
-                                                <a href="single-product.php">
-                                                    <img src="./assets/images/product/product-4.jpg" alt="">
-                                                </a>
-                                                <span class="descount-sticker">-10%</span>
-                                                <span class="sticker">New</span>
-                                                <div class="product-action d-flex justify-content-between">
-                                                    <a class="product-btn" href="#">Add to Cart</a>
-                                                    <ul class="d-flex">
-                                                        <li><a href="#quick-view-modal-container" data-toggle="modal"
-                                                                title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-exchange"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Bruk</a></h3>
-                                                <div class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <h4 class="price"><span class="new">€115.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                    </div>
-                                    <div class="col-12">
-                                        <!-- Single Product Start -->
-                                        <div class="single-product mb-30">
-                                            <div class="product-img">
-                                                <a href="single-product.php">
-                                                    <img src="./assets/images/product/product-5.jpg" alt="">
-                                                </a>
-                                                <span class="descount-sticker">-10%</span>
-                                                <span class="sticker">New</span>
-                                                <div class="product-action d-flex justify-content-between">
-                                                    <a class="product-btn" href="#">Add to Cart</a>
-                                                    <ul class="d-flex">
-                                                        <li><a href="#quick-view-modal-container" data-toggle="modal"
-                                                                title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-exchange"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Brush</a></h3>
-                                                <div class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <h4 class="price"><span class="new">€130.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                    </div>
-                                    <div class="col-12">
-                                        <!-- Single Product Start -->
-                                        <div class="single-product mb-30">
-                                            <div class="product-img">
-                                                <a href="single-product.php">
-                                                    <img src="./assets/images/product/product-6.jpg" alt="">
-                                                </a>
-                                                <span class="descount-sticker">-10%</span>
-                                                <span class="sticker">New</span>
-                                                <div class="product-action d-flex justify-content-between">
-                                                    <a class="product-btn" href="#">Add to Cart</a>
-                                                    <ul class="d-flex">
-                                                        <li><a href="#quick-view-modal-container" data-toggle="modal"
-                                                                title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-exchange"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Brug</a></h3>
-                                                <div class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <h4 class="price"><span class="new">€70.00</span><span
-                                                        class="old">€100.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                    </div>
-                                    <div class="col-12">
-                                        <!-- Single Product Start -->
-                                        <div class="single-product mb-30">
-                                            <div class="product-img">
-                                                <a href="single-product.php">
-                                                    <img src="./assets/images/product/product-7.jpg" alt="">
-                                                </a>
-                                                <span class="descount-sticker">-10%</span>
-                                                <span class="sticker">New</span>
-                                                <div class="product-action d-flex justify-content-between">
-                                                    <a class="product-btn" href="#">Add to Cart</a>
-                                                    <ul class="d-flex">
-                                                        <li><a href="#quick-view-modal-container" data-toggle="modal"
-                                                                title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-exchange"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Bruc</a></h3>
-                                                <div class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <h4 class="price"><span class="new">€70.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                    </div>
-                                    <div class="col-12">
-                                        <!-- Single Product Start -->
-                                        <div class="single-product mb-30">
-                                            <div class="product-img">
-                                                <a href="single-product.php">
-                                                    <img src="./assets/images/product/product-8.jpg" alt="">
-                                                </a>
-                                                <span class="descount-sticker">-10%</span>
-                                                <span class="sticker">New</span>
-                                                <div class="product-action d-flex justify-content-between">
-                                                    <a class="product-btn" href="#">Add to Cart</a>
-                                                    <ul class="d-flex">
-                                                        <li><a href="#quick-view-modal-container" data-toggle="modal"
-                                                                title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-exchange"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Brusb</a></h3>
-                                                <div class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <h4 class="price"><span class="new">€90.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                    </div>
-                                    <div class="col-12">
-                                        <!-- Single Product Start -->
-                                        <div class="single-product mb-30">
-                                            <div class="product-img">
-                                                <a href="single-product.php">
-                                                    <img src="./assets/images/product/product-10.jpg" alt="">
-                                                </a>
-                                                <span class="descount-sticker">-10%</span>
-                                                <span class="sticker">New</span>
-                                                <div class="product-action d-flex justify-content-between">
-                                                    <a class="product-btn" href="#">Add to Cart</a>
-                                                    <ul class="d-flex">
-                                                        <li><a href="#quick-view-modal-container" data-toggle="modal"
-                                                                title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-exchange"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Brush</a></h3>
-                                                <div class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <h4 class="price"><span class="new">€130.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                    </div>
-                                    <div class="col-12">
-                                        <!-- Single Product Start -->
-                                        <div class="single-product mb-30">
-                                            <div class="product-img">
-                                                <a href="single-product.php">
-                                                    <img src="./assets/images/product/product-11.jpg" alt="">
-                                                </a>
-                                                <span class="descount-sticker">-10%</span>
-                                                <span class="sticker">New</span>
-                                                <div class="product-action d-flex justify-content-between">
-                                                    <a class="product-btn" href="#">Add to Cart</a>
-                                                    <ul class="d-flex">
-                                                        <li><a href="#quick-view-modal-container" data-toggle="modal"
-                                                                title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-exchange"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Brug</a></h3>
-                                                <div class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <h4 class="price"><span class="new">€70.00</span><span
-                                                        class="old">€100.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                    </div>
-                                    <div class="col-12">
-                                        <!-- Single Product Start -->
-                                        <div class="single-product mb-30">
-                                            <div class="product-img">
-                                                <a href="single-product.php">
-                                                    <img src="./assets/images/product/product-12.jpg" alt="">
-                                                </a>
-                                                <span class="descount-sticker">-10%</span>
-                                                <span class="sticker">New</span>
-                                                <div class="product-action d-flex justify-content-between">
-                                                    <a class="product-btn" href="#">Add to Cart</a>
-                                                    <ul class="d-flex">
-                                                        <li><a href="#quick-view-modal-container" data-toggle="modal"
-                                                                title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-exchange"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Bruc</a></h3>
-                                                <div class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <h4 class="price"><span class="new">€70.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                    </div>
-                                    <div class="col-12">
-                                        <!-- Single Product Start -->
-                                        <div class="single-product mb-30">
-                                            <div class="product-img">
-                                                <a href="single-product.php">
-                                                    <img src="./assets/images/product/product-13.jpg" alt="">
-                                                </a>
-                                                <span class="descount-sticker">-10%</span>
-                                                <span class="sticker">New</span>
-                                                <div class="product-action d-flex justify-content-between">
-                                                    <a class="product-btn" href="#">Add to Cart</a>
-                                                    <ul class="d-flex">
-                                                        <li><a href="#quick-view-modal-container" data-toggle="modal"
-                                                                title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-exchange"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Brusb</a></h3>
-                                                <div class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <h4 class="price"><span class="new">€90.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                    </div>
-                                </div>
+                                <?php
+                                }
+                                ?>
+                                ?>
+
                             </div>
                             <div class="tab-pane fade" id="onsale">
-                                <div class="row tf-element-carousel" data-slick-options='{
-                                    "slidesToShow": 4,
-                                    "slidesToScroll": 1,
-                                    "infinite": true,
-                                    "rows": 2,
-                                    "arrows": true,
-                                    "prevArrow": {"buttonClass": "slick-btn slick-prev", "iconClass": "fa fa-angle-left" },
-                                    "nextArrow": {"buttonClass": "slick-btn slick-next", "iconClass": "fa fa-angle-right" }
-                                    }' data-slick-responsive='[
-                                    {"breakpoint":1199, "settings": {
-                                    "slidesToShow": 3
-                                    }},
-                                    {"breakpoint":992, "settings": {
-                                    "slidesToShow": 2
-                                    }},
-                                    {"breakpoint":768, "settings": {
-                                    "slidesToShow": 2,
-                                    "arrows": false,
-                                    "autoplay": true
-                                    }},
-                                    {"breakpoint":576, "settings": {
-                                    "slidesToShow": 1,
-                                    "arrows": false,
-                                    "autoplay": true
-                                    }}
-                                    ]'>
-                                    <div class="col-12">
-                                        <!-- Single Product Start -->
-                                        <div class="single-product mb-30">
-                                            <div class="product-img">
-                                                <a href="single-product.php">
-                                                    <img src="./assets/images/product/product-10.jpg" alt="">
-                                                </a>
-                                                <span class="descount-sticker">-10%</span>
-                                                <span class="sticker">New</span>
-                                                <div class="product-action d-flex justify-content-between">
-                                                    <a class="product-btn" href="#">Add to Cart</a>
-                                                    <ul class="d-flex">
-                                                        <li><a href="#quick-view-modal-container" data-toggle="modal"
-                                                                title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-exchange"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Brush</a></h3>
-                                                <div class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <h4 class="price"><span class="new">€130.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                    </div>
-                                    <div class="col-12">
-                                        <!-- Single Product Start -->
-                                        <div class="single-product mb-30">
-                                            <div class="product-img">
-                                                <a href="single-product.php">
-                                                    <img src="./assets/images/product/product-11.jpg" alt="">
-                                                </a>
-                                                <span class="descount-sticker">-10%</span>
-                                                <span class="sticker">New</span>
-                                                <div class="product-action d-flex justify-content-between">
-                                                    <a class="product-btn" href="#">Add to Cart</a>
-                                                    <ul class="d-flex">
-                                                        <li><a href="#quick-view-modal-container" data-toggle="modal"
-                                                                title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-exchange"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Brug</a></h3>
-                                                <div class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <h4 class="price"><span class="new">€70.00</span><span
-                                                        class="old">€100.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                    </div>
-                                    <div class="col-12">
-                                        <!-- Single Product Start -->
-                                        <div class="single-product mb-30">
-                                            <div class="product-img">
-                                                <a href="single-product.php">
-                                                    <img src="./assets/images/product/product-12.jpg" alt="">
-                                                </a>
-                                                <span class="descount-sticker">-10%</span>
-                                                <span class="sticker">New</span>
-                                                <div class="product-action d-flex justify-content-between">
-                                                    <a class="product-btn" href="#">Add to Cart</a>
-                                                    <ul class="d-flex">
-                                                        <li><a href="#quick-view-modal-container" data-toggle="modal"
-                                                                title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-exchange"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Bruc</a></h3>
-                                                <div class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <h4 class="price"><span class="new">€70.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                    </div>
-                                    <div class="col-12">
-                                        <!-- Single Product Start -->
-                                        <div class="single-product mb-30">
-                                            <div class="product-img">
-                                                <a href="single-product.php">
-                                                    <img src="./assets/images/product/product-13.jpg" alt="">
-                                                </a>
-                                                <span class="descount-sticker">-10%</span>
-                                                <span class="sticker">New</span>
-                                                <div class="product-action d-flex justify-content-between">
-                                                    <a class="product-btn" href="#">Add to Cart</a>
-                                                    <ul class="d-flex">
-                                                        <li><a href="#quick-view-modal-container" data-toggle="modal"
-                                                                title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-exchange"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Brusb</a></h3>
-                                                <div class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <h4 class="price"><span class="new">€90.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                    </div>
-                                    <div class="col-12">
-                                        <!-- Single Product Start -->
-                                        <div class="single-product mb-30">
-                                            <div class="product-img">
-                                                <a href="single-product.php">
-                                                    <img src="./assets/images/product/product-1.jpg" alt="">
-                                                </a>
-                                                <span class="descount-sticker">-10%</span>
-                                                <span class="sticker">New</span>
-                                                <div class="product-action d-flex justify-content-between">
-                                                    <a class="product-btn" href="#">Add to Cart</a>
-                                                    <ul class="d-flex">
-                                                        <li><a href="#quick-view-modal-container" data-toggle="modal"
-                                                                title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-exchange"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Brush</a></h3>
-                                                <div class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <h4 class="price"><span class="new">€110.00</span><span
-                                                        class="old">€130.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                    </div>
-                                    <div class="col-12">
-                                        <!-- Single Product Start -->
-                                        <div class="single-product mb-30">
-                                            <div class="product-img">
-                                                <a href="single-product.php">
-                                                    <img src="./assets/images/product/product-2.jpg" alt="">
-                                                </a>
-                                                <span class="descount-sticker">-10%</span>
-                                                <span class="sticker">New</span>
-                                                <div class="product-action d-flex justify-content-between">
-                                                    <a class="product-btn" href="#">Add to Cart</a>
-                                                    <ul class="d-flex">
-                                                        <li><a href="#quick-view-modal-container" data-toggle="modal"
-                                                                title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-exchange"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Brux</a></h3>
-                                                <div class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <h4 class="price"><span class="new">€130.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                    </div>
-                                    <div class="col-12">
-                                        <!-- Single Product Start -->
-                                        <div class="single-product mb-30">
-                                            <div class="product-img">
-                                                <a href="single-product.php">
-                                                    <img src="./assets/images/product/product-3.jpg" alt="">
-                                                </a>
-                                                <span class="descount-sticker">-10%</span>
-                                                <span class="sticker">New</span>
-                                                <div class="product-action d-flex justify-content-between">
-                                                    <a class="product-btn" href="#">Add to Cart</a>
-                                                    <ul class="d-flex">
-                                                        <li><a href="#quick-view-modal-container" data-toggle="modal"
-                                                                title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-exchange"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Bruz</a></h3>
-                                                <div class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <h4 class="price"><span class="new">€130.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                    </div>
-                                    <div class="col-12">
-                                        <!-- Single Product Start -->
-                                        <div class="single-product mb-30">
-                                            <div class="product-img">
-                                                <a href="single-product.php">
-                                                    <img src="./assets/images/product/product-4.jpg" alt="">
-                                                </a>
-                                                <span class="descount-sticker">-10%</span>
-                                                <span class="sticker">New</span>
-                                                <div class="product-action d-flex justify-content-between">
-                                                    <a class="product-btn" href="#">Add to Cart</a>
-                                                    <ul class="d-flex">
-                                                        <li><a href="#quick-view-modal-container" data-toggle="modal"
-                                                                title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-exchange"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Bruk</a></h3>
-                                                <div class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <h4 class="price"><span class="new">€115.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                    </div>
-                                    <div class="col-12">
-                                        <!-- Single Product Start -->
-                                        <div class="single-product mb-30">
-                                            <div class="product-img">
-                                                <a href="single-product.php">
-                                                    <img src="./assets/images/product/product-5.jpg" alt="">
-                                                </a>
-                                                <span class="descount-sticker">-10%</span>
-                                                <span class="sticker">New</span>
-                                                <div class="product-action d-flex justify-content-between">
-                                                    <a class="product-btn" href="#">Add to Cart</a>
-                                                    <ul class="d-flex">
-                                                        <li><a href="#quick-view-modal-container" data-toggle="modal"
-                                                                title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-exchange"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Brush</a></h3>
-                                                <div class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <h4 class="price"><span class="new">€130.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                    </div>
-                                    <div class="col-12">
-                                        <!-- Single Product Start -->
-                                        <div class="single-product mb-30">
-                                            <div class="product-img">
-                                                <a href="single-product.php">
-                                                    <img src="./assets/images/product/product-6.jpg" alt="">
-                                                </a>
-                                                <span class="descount-sticker">-10%</span>
-                                                <span class="sticker">New</span>
-                                                <div class="product-action d-flex justify-content-between">
-                                                    <a class="product-btn" href="#">Add to Cart</a>
-                                                    <ul class="d-flex">
-                                                        <li><a href="#quick-view-modal-container" data-toggle="modal"
-                                                                title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-exchange"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Brug</a></h3>
-                                                <div class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <h4 class="price"><span class="new">€70.00</span><span
-                                                        class="old">€100.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                    </div>
-                                    <div class="col-12">
-                                        <!-- Single Product Start -->
-                                        <div class="single-product mb-30">
-                                            <div class="product-img">
-                                                <a href="single-product.php">
-                                                    <img src="./assets/images/product/product-7.jpg" alt="">
-                                                </a>
-                                                <span class="descount-sticker">-10%</span>
-                                                <span class="sticker">New</span>
-                                                <div class="product-action d-flex justify-content-between">
-                                                    <a class="product-btn" href="#">Add to Cart</a>
-                                                    <ul class="d-flex">
-                                                        <li><a href="#quick-view-modal-container" data-toggle="modal"
-                                                                title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-exchange"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Bruc</a></h3>
-                                                <div class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <h4 class="price"><span class="new">€70.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                    </div>
-                                    <div class="col-12">
-                                        <!-- Single Product Start -->
-                                        <div class="single-product mb-30">
-                                            <div class="product-img">
-                                                <a href="single-product.php">
-                                                    <img src="./assets/images/product/product-8.jpg" alt="">
-                                                </a>
-                                                <span class="descount-sticker">-10%</span>
-                                                <span class="sticker">New</span>
-                                                <div class="product-action d-flex justify-content-between">
-                                                    <a class="product-btn" href="#">Add to Cart</a>
-                                                    <ul class="d-flex">
-                                                        <li><a href="#quick-view-modal-container" data-toggle="modal"
-                                                                title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-exchange"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Brusb</a></h3>
-                                                <div class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <h4 class="price"><span class="new">€90.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                    </div>
-                                </div>
+                                <?php
+                                $conn = mysqli_connect('localhost', 'root', '', 'mypham');
+                                $sqlOnSale = 'Select * from Products where on_sale = 1';
+                                $resultOnSale = mysqli_query($conn, $sqlOnSale);
+                                displayProduct($resultOnSale);
+                                ?>
                             </div>
                             <div class="tab-pane fade" id="featureproducts">
-                                <div class="row tf-element-carousel" data-slick-options='{
-                                    "slidesToShow": 4,
-                                    "slidesToScroll": 1,
-                                    "infinite": true,
-                                    "rows": 2,
-                                    "arrows": true,
-                                    "prevArrow": {"buttonClass": "slick-btn slick-prev", "iconClass": "fa fa-angle-left" },
-                                    "nextArrow": {"buttonClass": "slick-btn slick-next", "iconClass": "fa fa-angle-right" }
-                                    }' data-slick-responsive='[
-                                    {"breakpoint":1199, "settings": {
-                                    "slidesToShow": 3
-                                    }},
-                                    {"breakpoint":992, "settings": {
-                                    "slidesToShow": 2
-                                    }},
-                                    {"breakpoint":768, "settings": {
-                                    "slidesToShow": 2,
-                                    "arrows": false,
-                                    "autoplay": true
-                                    }},
-                                    {"breakpoint":576, "settings": {
-                                    "slidesToShow": 1,
-                                    "arrows": false,
-                                    "autoplay": true
-                                    }}
-                                    ]'>
-                                    <div class="col-12">
-                                        <!-- Single Product Start -->
-                                        <div class="single-product mb-30">
-                                            <div class="product-img">
-                                                <a href="single-product.php">
-                                                    <img src="./assets/images/product/product-1.jpg" alt="">
-                                                </a>
-                                                <span class="descount-sticker">-10%</span>
-                                                <span class="sticker">New</span>
-                                                <div class="product-action d-flex justify-content-between">
-                                                    <a class="product-btn" href="#">Add to Cart</a>
-                                                    <ul class="d-flex">
-                                                        <li><a href="#quick-view-modal-container" data-toggle="modal"
-                                                                title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-exchange"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Brush</a></h3>
-                                                <div class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <h4 class="price"><span class="new">€110.00</span><span
-                                                        class="old">€130.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                    </div>
-                                    <div class="col-12">
-                                        <!-- Single Product Start -->
-                                        <div class="single-product mb-30">
-                                            <div class="product-img">
-                                                <a href="single-product.php">
-                                                    <img src="./assets/images/product/product-2.jpg" alt="">
-                                                </a>
-                                                <span class="descount-sticker">-10%</span>
-                                                <span class="sticker">New</span>
-                                                <div class="product-action d-flex justify-content-between">
-                                                    <a class="product-btn" href="#">Add to Cart</a>
-                                                    <ul class="d-flex">
-                                                        <li><a href="#quick-view-modal-container" data-toggle="modal"
-                                                                title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-exchange"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Brux</a></h3>
-                                                <div class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <h4 class="price"><span class="new">€130.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                    </div>
-                                    <div class="col-12">
-                                        <!-- Single Product Start -->
-                                        <div class="single-product mb-30">
-                                            <div class="product-img">
-                                                <a href="single-product.php">
-                                                    <img src="./assets/images/product/product-3.jpg" alt="">
-                                                </a>
-                                                <span class="descount-sticker">-10%</span>
-                                                <span class="sticker">New</span>
-                                                <div class="product-action d-flex justify-content-between">
-                                                    <a class="product-btn" href="#">Add to Cart</a>
-                                                    <ul class="d-flex">
-                                                        <li><a href="#quick-view-modal-container" data-toggle="modal"
-                                                                title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-exchange"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Bruz</a></h3>
-                                                <div class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <h4 class="price"><span class="new">€130.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                    </div>
-                                    <div class="col-12">
-                                        <!-- Single Product Start -->
-                                        <div class="single-product mb-30">
-                                            <div class="product-img">
-                                                <a href="single-product.php">
-                                                    <img src="./assets/images/product/product-8.jpg" alt="">
-                                                </a>
-                                                <span class="descount-sticker">-10%</span>
-                                                <span class="sticker">New</span>
-                                                <div class="product-action d-flex justify-content-between">
-                                                    <a class="product-btn" href="#">Add to Cart</a>
-                                                    <ul class="d-flex">
-                                                        <li><a href="#quick-view-modal-container" data-toggle="modal"
-                                                                title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-exchange"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Brusb</a></h3>
-                                                <div class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <h4 class="price"><span class="new">€90.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                    </div>
-                                    <div class="col-12">
-                                        <!-- Single Product Start -->
-                                        <div class="single-product mb-30">
-                                            <div class="product-img">
-                                                <a href="single-product.php">
-                                                    <img src="./assets/images/product/product-10.jpg" alt="">
-                                                </a>
-                                                <span class="descount-sticker">-10%</span>
-                                                <span class="sticker">New</span>
-                                                <div class="product-action d-flex justify-content-between">
-                                                    <a class="product-btn" href="#">Add to Cart</a>
-                                                    <ul class="d-flex">
-                                                        <li><a href="#quick-view-modal-container" data-toggle="modal"
-                                                                title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-exchange"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Brush</a></h3>
-                                                <div class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <h4 class="price"><span class="new">€130.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                    </div>
-                                    <div class="col-12">
-                                        <!-- Single Product Start -->
-                                        <div class="single-product mb-30">
-                                            <div class="product-img">
-                                                <a href="single-product.php">
-                                                    <img src="./assets/images/product/product-11.jpg" alt="">
-                                                </a>
-                                                <span class="descount-sticker">-10%</span>
-                                                <span class="sticker">New</span>
-                                                <div class="product-action d-flex justify-content-between">
-                                                    <a class="product-btn" href="#">Add to Cart</a>
-                                                    <ul class="d-flex">
-                                                        <li><a href="#quick-view-modal-container" data-toggle="modal"
-                                                                title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-exchange"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Brug</a></h3>
-                                                <div class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <h4 class="price"><span class="new">€70.00</span><span
-                                                        class="old">€100.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                    </div>
-                                    <div class="col-12">
-                                        <!-- Single Product Start -->
-                                        <div class="single-product mb-30">
-                                            <div class="product-img">
-                                                <a href="single-product.php">
-                                                    <img src="./assets/images/product/product-12.jpg" alt="">
-                                                </a>
-                                                <span class="descount-sticker">-10%</span>
-                                                <span class="sticker">New</span>
-                                                <div class="product-action d-flex justify-content-between">
-                                                    <a class="product-btn" href="#">Add to Cart</a>
-                                                    <ul class="d-flex">
-                                                        <li><a href="#quick-view-modal-container" data-toggle="modal"
-                                                                title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-exchange"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Bruc</a></h3>
-                                                <div class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <h4 class="price"><span class="new">€70.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                    </div>
-                                    <div class="col-12">
-                                        <!-- Single Product Start -->
-                                        <div class="single-product mb-30">
-                                            <div class="product-img">
-                                                <a href="single-product.php">
-                                                    <img src="./assets/images/product/product-13.jpg" alt="">
-                                                </a>
-                                                <span class="descount-sticker">-10%</span>
-                                                <span class="sticker">New</span>
-                                                <div class="product-action d-flex justify-content-between">
-                                                    <a class="product-btn" href="#">Add to Cart</a>
-                                                    <ul class="d-flex">
-                                                        <li><a href="#quick-view-modal-container" data-toggle="modal"
-                                                                title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-exchange"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Brusb</a></h3>
-                                                <div class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <h4 class="price"><span class="new">€90.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                    </div>
-                                    <div class="col-12">
-                                        <!-- Single Product Start -->
-                                        <div class="single-product mb-30">
-                                            <div class="product-img">
-                                                <a href="single-product.php">
-                                                    <img src="./assets/images/product/product-4.jpg" alt="">
-                                                </a>
-                                                <span class="descount-sticker">-10%</span>
-                                                <span class="sticker">New</span>
-                                                <div class="product-action d-flex justify-content-between">
-                                                    <a class="product-btn" href="#">Add to Cart</a>
-                                                    <ul class="d-flex">
-                                                        <li><a href="#quick-view-modal-container" data-toggle="modal"
-                                                                title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-exchange"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Bruk</a></h3>
-                                                <div class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <h4 class="price"><span class="new">€115.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                    </div>
-                                    <div class="col-12">
-                                        <!-- Single Product Start -->
-                                        <div class="single-product mb-30">
-                                            <div class="product-img">
-                                                <a href="single-product.php">
-                                                    <img src="./assets/images/product/product-5.jpg" alt="">
-                                                </a>
-                                                <span class="descount-sticker">-10%</span>
-                                                <span class="sticker">New</span>
-                                                <div class="product-action d-flex justify-content-between">
-                                                    <a class="product-btn" href="#">Add to Cart</a>
-                                                    <ul class="d-flex">
-                                                        <li><a href="#quick-view-modal-container" data-toggle="modal"
-                                                                title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-exchange"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Brush</a></h3>
-                                                <div class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <h4 class="price"><span class="new">€130.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                    </div>
-                                    <div class="col-12">
-                                        <!-- Single Product Start -->
-                                        <div class="single-product mb-30">
-                                            <div class="product-img">
-                                                <a href="single-product.php">
-                                                    <img src="./assets/images/product/product-6.jpg" alt="">
-                                                </a>
-                                                <span class="descount-sticker">-10%</span>
-                                                <span class="sticker">New</span>
-                                                <div class="product-action d-flex justify-content-between">
-                                                    <a class="product-btn" href="#">Add to Cart</a>
-                                                    <ul class="d-flex">
-                                                        <li><a href="#quick-view-modal-container" data-toggle="modal"
-                                                                title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-exchange"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Brug</a></h3>
-                                                <div class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <h4 class="price"><span class="new">€70.00</span><span
-                                                        class="old">€100.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                    </div>
-                                    <div class="col-12">
-                                        <!-- Single Product Start -->
-                                        <div class="single-product mb-30">
-                                            <div class="product-img">
-                                                <a href="single-product.php">
-                                                    <img src="./assets/images/product/product-7.jpg" alt="">
-                                                </a>
-                                                <span class="descount-sticker">-10%</span>
-                                                <span class="sticker">New</span>
-                                                <div class="product-action d-flex justify-content-between">
-                                                    <a class="product-btn" href="#">Add to Cart</a>
-                                                    <ul class="d-flex">
-                                                        <li><a href="#quick-view-modal-container" data-toggle="modal"
-                                                                title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-exchange"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Bruc</a></h3>
-                                                <div class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <h4 class="price"><span class="new">€70.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                    </div>
-                                </div>
+                                <?php
+                                $conn = mysqli_connect('localhost', 'root', '', 'mypham');
+                                $sqlFeature = 'Select * from Products where feature_product = 1';
+                                $resultFeature = mysqli_query($conn, $sqlFeature);
+                                displayProduct($resultFeature)
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -1509,122 +323,50 @@
                                     "autoplay": true
                                     }}
                                     ]'>
-                                    <div class="list-product-group">
-                                        <!-- Single List Product Start -->
-                                        <div class="single-list-product">
-                                            <div class="product-image">
-                                                <a href="single-product.php"><img
-                                                        src="./assets/images/product/product-1.jpg" alt=""></a>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">Aftershave Lotion </a></h3>
-                                                <h4 class="price"><span class="new">€110.00</span><span
-                                                        class="old">€130.00</span></h4>
-                                            </div>
+                                    <?php
+                                    $sqlTopRated1 = "Select * from Products";
+                                    $resultTopRated1 = mysqli_query($conn, $sqlTopRated1);
+                                    listProduct($resultTopRated1);
+                                    function listProduct($result)
+                                    {
+                                        $i = 1;
+                                    ?>
+                                        <div class="list-product-group">
+                                            <?php
+                                            while ($row = mysqli_fetch_array($result)) {
+                                            ?>
+
+                                                <!-- Single List Product Start -->
+                                                <div class="single-list-product">
+                                                    <div class="product-image">
+                                                        <a href="single-product.php"><img
+                                                                src="./assets/images/product/<?php echo $row['image']; ?>" alt=""></a>
+                                                    </div>
+                                                    <div class="product-content">
+                                                        <h3><a href="single-product.php"><?php echo $row['product_name']; ?></a></h3>
+                                                        <h4 class="price"><span class="new">€<?php echo $row['new_price']; ?>.00</span><span
+                                                                class="old">€<?php echo $row['old_price']; ?>.00</span></h4>
+                                                    </div>
+                                                </div>
+                                                <!-- Single List Product End -->
+                                            <?php
+                                                if ($i == 3) {
+                                                    break;
+                                                }
+                                                $i += 1;
+                                            }
+                                            ?>
                                         </div>
-                                        <!-- Single List Product End -->
-                                        <!-- Single List Product Start -->
-                                        <div class="single-list-product">
-                                            <div class="product-image">
-                                                <a href="single-product.php"><img
-                                                        src="./assets/images/product/product-2.jpg" alt=""></a>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Bruh </a></h3>
-                                                <h4 class="price"><span class="new">€130.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single List Product End -->
-                                        <!-- Single List Product Start -->
-                                        <div class="single-list-product">
-                                            <div class="product-image">
-                                                <a href="single-product.php"><img
-                                                        src="./assets/images/product/product-3.jpg" alt=""></a>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Brux </a></h3>
-                                                <h4 class="price"><span class="new">€130.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single List Product End -->
-                                    </div>
-                                    <div class="list-product-group">
-                                        <!-- Single List Product Start -->
-                                        <div class="single-list-product">
-                                            <div class="product-image">
-                                                <a href="single-product.php"><img
-                                                        src="./assets/images/product/product-4.jpg" alt=""></a>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">Aftershave Savlon </a></h3>
-                                                <h4 class="price"><span class="new">€70.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single List Product End -->
-                                        <!-- Single List Product Start -->
-                                        <div class="single-list-product">
-                                            <div class="product-image">
-                                                <a href="single-product.php"><img
-                                                        src="./assets/images/product/product-5.jpg" alt=""></a>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">Brass Acces1 </a></h3>
-                                                <h4 class="price"><span class="new">€150.00</span><span
-                                                        class="old">€187.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single List Product End -->
-                                        <!-- Single List Product Start -->
-                                        <div class="single-list-product">
-                                            <div class="product-image">
-                                                <a href="single-product.php"><img
-                                                        src="./assets/images/product/product-6.jpg" alt=""></a>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">Brass Accessory </a></h3>
-                                                <h4 class="price"><span class="new">€187.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single List Product End -->
-                                    </div>
-                                    <div class="list-product-group">
-                                        <!-- Single List Product Start -->
-                                        <div class="single-list-product">
-                                            <div class="product-image">
-                                                <a href="single-product.php"><img
-                                                        src="./assets/images/product/product-7.jpg" alt=""></a>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Bruw</a></h3>
-                                                <h4 class="price"><span class="new">€125.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single List Product End -->
-                                        <!-- Single List Product Start -->
-                                        <div class="single-list-product">
-                                            <div class="product-image">
-                                                <a href="single-product.php"><img
-                                                        src="./assets/images/product/product-8.jpg" alt=""></a>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Brum </a></h3>
-                                                <h4 class="price"><span class="new">€60.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single List Product End -->
-                                        <!-- Single List Product Start -->
-                                        <div class="single-list-product">
-                                            <div class="product-image">
-                                                <a href="single-product.php"><img
-                                                        src="./assets/images/product/product-9.jpg" alt=""></a>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Brun </a></h3>
-                                                <h4 class="price"><span class="new">€53.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single List Product End -->
-                                    </div>
+                                    <?php
+                                    }
+                                    $sqlTopRated2 = "Select * from Products where product_id > 3";
+                                    $resultTopRated2 = mysqli_query($conn, $sqlTopRated2);
+                                    listProduct($resultTopRated2);
+                                    $sqlTopRated3 = "Select * from Products where product_id > 6";
+                                    $resultTopRated3 = mysqli_query($conn, $sqlTopRated3);
+                                    listProduct($resultTopRated3);
+
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -1660,122 +402,17 @@
                                     "autoplay": true
                                     }}
                                     ]'>
-                                    <div class="list-product-group">
-                                        <!-- Single List Product Start -->
-                                        <div class="single-list-product">
-                                            <div class="product-image">
-                                                <a href="single-product.php"><img
-                                                        src="./assets/images/product/product-7.jpg" alt=""></a>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Bruw</a></h3>
-                                                <h4 class="price"><span class="new">€125.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single List Product End -->
-                                        <!-- Single List Product Start -->
-                                        <div class="single-list-product">
-                                            <div class="product-image">
-                                                <a href="single-product.php"><img
-                                                        src="./assets/images/product/product-8.jpg" alt=""></a>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Brum </a></h3>
-                                                <h4 class="price"><span class="new">€60.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single List Product End -->
-                                        <!-- Single List Product Start -->
-                                        <div class="single-list-product">
-                                            <div class="product-image">
-                                                <a href="single-product.php"><img
-                                                        src="./assets/images/product/product-9.jpg" alt=""></a>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Brun </a></h3>
-                                                <h4 class="price"><span class="new">€53.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single List Product End -->
-                                    </div>
-                                    <div class="list-product-group">
-                                        <!-- Single List Product Start -->
-                                        <div class="single-list-product">
-                                            <div class="product-image">
-                                                <a href="single-product.php"><img
-                                                        src="./assets/images/product/product-1.jpg" alt=""></a>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">Aftershave Lotion </a></h3>
-                                                <h4 class="price"><span class="new">€110.00</span><span
-                                                        class="old">€130.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single List Product End -->
-                                        <!-- Single List Product Start -->
-                                        <div class="single-list-product">
-                                            <div class="product-image">
-                                                <a href="single-product.php"><img
-                                                        src="./assets/images/product/product-2.jpg" alt=""></a>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Bruh </a></h3>
-                                                <h4 class="price"><span class="new">€130.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single List Product End -->
-                                        <!-- Single List Product Start -->
-                                        <div class="single-list-product">
-                                            <div class="product-image">
-                                                <a href="single-product.php"><img
-                                                        src="./assets/images/product/product-3.jpg" alt=""></a>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Brux </a></h3>
-                                                <h4 class="price"><span class="new">€130.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single List Product End -->
-                                    </div>
-                                    <div class="list-product-group">
-                                        <!-- Single List Product Start -->
-                                        <div class="single-list-product">
-                                            <div class="product-image">
-                                                <a href="single-product.php"><img
-                                                        src="./assets/images/product/product-4.jpg" alt=""></a>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">Aftershave Savlon </a></h3>
-                                                <h4 class="price"><span class="new">€70.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single List Product End -->
-                                        <!-- Single List Product Start -->
-                                        <div class="single-list-product">
-                                            <div class="product-image">
-                                                <a href="single-product.php"><img
-                                                        src="./assets/images/product/product-5.jpg" alt=""></a>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">Brass Acces1 </a></h3>
-                                                <h4 class="price"><span class="new">€150.00</span><span
-                                                        class="old">€187.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single List Product End -->
-                                        <!-- Single List Product Start -->
-                                        <div class="single-list-product">
-                                            <div class="product-image">
-                                                <a href="single-product.php"><img
-                                                        src="./assets/images/product/product-6.jpg" alt=""></a>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">Brass Accessory </a></h3>
-                                                <h4 class="price"><span class="new">€187.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single List Product End -->
-                                    </div>
+                                    <?php
+                                    $sqlOnSale1 = "Select * from Products";
+                                    $resultOnSale1 = mysqli_query($conn, $sqlOnSale1);
+                                    listProduct($resultOnSale1);
+                                    $sqlOnSale2 = "Select * from Products where product_id > 3";
+                                    $resultOnSale2 = mysqli_query($conn, $sqlOnSale2);
+                                    listProduct($resultOnSale2);
+                                    $sqlOnSale3 = "Select * from Products where product_id > 6";
+                                    $resultOnSale3 = mysqli_query($conn, $sqlOnSale3);
+                                    listProduct($resultOnSale3);
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -1811,122 +448,18 @@
                                     "autoplay": true
                                     }}
                                     ]'>
-                                    <div class="list-product-group">
-                                        <!-- Single List Product Start -->
-                                        <div class="single-list-product">
-                                            <div class="product-image">
-                                                <a href="single-product.php"><img
-                                                        src="./assets/images/product/product-4.jpg" alt=""></a>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">Aftershave Savlon </a></h3>
-                                                <h4 class="price"><span class="new">€70.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single List Product End -->
-                                        <!-- Single List Product Start -->
-                                        <div class="single-list-product">
-                                            <div class="product-image">
-                                                <a href="single-product.php"><img
-                                                        src="./assets/images/product/product-5.jpg" alt=""></a>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">Brass Acces1 </a></h3>
-                                                <h4 class="price"><span class="new">€150.00</span><span
-                                                        class="old">€187.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single List Product End -->
-                                        <!-- Single List Product Start -->
-                                        <div class="single-list-product">
-                                            <div class="product-image">
-                                                <a href="single-product.php"><img
-                                                        src="./assets/images/product/product-6.jpg" alt=""></a>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">Brass Accessory </a></h3>
-                                                <h4 class="price"><span class="new">€187.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single List Product End -->
-                                    </div>
-                                    <div class="list-product-group">
-                                        <!-- Single List Product Start -->
-                                        <div class="single-list-product">
-                                            <div class="product-image">
-                                                <a href="single-product.php"><img
-                                                        src="./assets/images/product/product-7.jpg" alt=""></a>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Bruw</a></h3>
-                                                <h4 class="price"><span class="new">€125.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single List Product End -->
-                                        <!-- Single List Product Start -->
-                                        <div class="single-list-product">
-                                            <div class="product-image">
-                                                <a href="single-product.php"><img
-                                                        src="./assets/images/product/product-8.jpg" alt=""></a>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Brum </a></h3>
-                                                <h4 class="price"><span class="new">€60.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single List Product End -->
-                                        <!-- Single List Product Start -->
-                                        <div class="single-list-product">
-                                            <div class="product-image">
-                                                <a href="single-product.php"><img
-                                                        src="./assets/images/product/product-9.jpg" alt=""></a>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Brun </a></h3>
-                                                <h4 class="price"><span class="new">€53.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single List Product End -->
-                                    </div>
-                                    <div class="list-product-group">
-                                        <!-- Single List Product Start -->
-                                        <div class="single-list-product">
-                                            <div class="product-image">
-                                                <a href="single-product.php"><img
-                                                        src="./assets/images/product/product-1.jpg" alt=""></a>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">Aftershave Lotion </a></h3>
-                                                <h4 class="price"><span class="new">€110.00</span><span
-                                                        class="old">€130.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single List Product End -->
-                                        <!-- Single List Product Start -->
-                                        <div class="single-list-product">
-                                            <div class="product-image">
-                                                <a href="single-product.php"><img
-                                                        src="./assets/images/product/product-2.jpg" alt=""></a>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Bruh </a></h3>
-                                                <h4 class="price"><span class="new">€130.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single List Product End -->
-                                        <!-- Single List Product Start -->
-                                        <div class="single-list-product">
-                                            <div class="product-image">
-                                                <a href="single-product.php"><img
-                                                        src="./assets/images/product/product-3.jpg" alt=""></a>
-                                            </div>
-                                            <div class="product-content">
-                                                <h3><a href="single-product.php">White Shave Brux </a></h3>
-                                                <h4 class="price"><span class="new">€130.00</span></h4>
-                                            </div>
-                                        </div>
-                                        <!-- Single List Product End -->
-                                    </div>
+                                    <?php
+                                    $sqlTrending1 = "Select * from Products";
+                                    $resultTrending1 = mysqli_query($conn, $sqlTrending1);
+                                    listProduct($resultTrending1);
+                                    $sqlTrending2 = "Select * from Products where product_id > 3";
+                                    $resultTreding2 = mysqli_query($conn, $sqlTrending2);
+                                    listProduct($resultTreding2);
+                                    $sqlTrending3 = "Select * from Products where product_id > 6";
+                                    $resultTreding3 = mysqli_query($conn, $sqlTrending3);
+                                    listProduct($resultTreding3);
+                                    ?>
+
                                 </div>
                             </div>
                         </div>
@@ -1935,15 +468,10 @@
             </div>
         </div>
         <!--List Product section end-->
-
-        <!--Brand section start-->
-
-        <!--Brand section end-->
         <?php
         require "footer.php";
         ?>
     </div>
-
 </body>
 
 <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
@@ -1952,5 +480,4 @@
 <script src="assets/js/plugins.js"></script>
 <script src="assets/js/main.js"></script>
 </body>
-
 </html>
